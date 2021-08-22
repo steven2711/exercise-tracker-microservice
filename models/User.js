@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema(
 UserSchema.virtual("log", {
   ref: "Exercise",
   localField: "_id",
-  foreignField: "username", // Field you are using from the Exercise model
+  foreignField: "userId", // Field you are using from the Exercise model
   justOne: false,
 });
 

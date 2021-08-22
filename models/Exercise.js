@@ -15,7 +15,7 @@ const ExerciseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  username: {
+  userId: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
     required: true,

@@ -47,7 +47,7 @@ exports.getUserAndLogs = async (req, res) => {
   let { from, to, limit } = req.query;
 
   let exerciseQuery = {
-    username: req.params._id,
+    userId: req.params._id,
   };
 
   if (from && to) {

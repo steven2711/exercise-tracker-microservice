@@ -1,4 +1,5 @@
 const Exercise = require("../models/Exercise");
+const User = require("../models/User");
 
 // @desc    Add single exercise to user
 // @route   POST /api/users/:_id/exercises
@@ -9,11 +10,21 @@ exports.addExercise = async (req, res) => {
       req.body.date = undefined;
     }
 
-    req.body.username = req.params._id;
-    console.log(req.body);
-    const exercise = await Exercise.create(req.body);
+    // Add id to req body
+    req.body.userId = req.params._id;
 
-    res.status(200).json(exercise);
+    const exercise = await Exercise.create(req.body);
+    const user = await User.find({ _id: req.params._id });
+
+    // Custom object output
+    const output = {
+      username: user[0].username,
+      description: exercise.description,
+      duration: exercise.duration,
+      date: exercise.date,
+    };
+
+    res.status(200).json(output);
   } catch (err) {
     console.error(`${err}`.red.bold);
 
