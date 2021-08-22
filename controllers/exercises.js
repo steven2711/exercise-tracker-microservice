@@ -24,7 +24,7 @@ exports.addExercise = async (req, res) => {
       username: user[0].username,
       description: exercise.description,
       duration: exercise.duration,
-      date: exercise.date,
+      date: exercise.date.toDateString(),
     };
 
     res.status(200).json(output);
