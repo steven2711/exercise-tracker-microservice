@@ -10,6 +10,9 @@ exports.addExercise = async (req, res) => {
       req.body.date = undefined;
     }
 
+    // Make sure duration is an int
+    req.body.duration = parseInt(req.body.duration);
+
     // Add id to req body
     req.body.userId = req.params._id;
 

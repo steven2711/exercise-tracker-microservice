@@ -7,9 +7,8 @@ const ExerciseSchema = new mongoose.Schema({
     maxlength: [500, "Name can not be more than 500 characters"],
   },
   duration: {
-    type: String,
+    type: Number,
     required: [true, "Please add an exercise duration"],
-    maxlength: [50, "Name can not be more than 50 characters"],
   },
   date: {
     type: Date,
