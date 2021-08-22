@@ -21,6 +21,7 @@ exports.addExercise = async (req, res) => {
 
     // Custom object output
     const output = {
+      _id: user[0].id,
       username: user[0].username,
       description: exercise.description,
       duration: exercise.duration,
